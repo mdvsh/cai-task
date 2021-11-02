@@ -3,8 +3,8 @@ import { useState } from "react";
 import { coalesceToList } from "./utils/coalesceToList.js";
 import { makeListForGrid } from "./utils/makeListForGrid.js";
 
-import Gallery from "react-photo-gallery";
 import Search from "./components/Search";
+import ImgGrid from "./components/ImgGrid";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -14,7 +14,8 @@ function App() {
 
   const fetchImages = async (searchQuery) => {
     setLoading(true);
-    console.log(searchQuery);
+    setCurrentImage(-1);
+    // console.log(searchQuery);
     try {
       const response = await fetch(`/search/?q=${searchQuery}`);
       const data = await response.json();
@@ -22,6 +23,7 @@ function App() {
         setImages(data.images);
         setError(data.error);
         setLoading(false);
+        setCurrentImage(-1);
         return;
       }
       setImages(coalesceToList(data.images));
@@ -49,17 +51,22 @@ function App() {
             <p>loading images...</p>
           </div>
         )}
-        {/* todo: better error component */}
 
+        {/* todo: better error component */}
         {error && (
           <div className="flex-1 text-xl font-bold text-red-400">
             <p>{error}</p>
           </div>
         )}
       </div>
-      {images.length !== 0 && (
-        <Gallery photos={makeListForGrid(images)} direction={"column"} />
+
+      {images.length !== 0 && currentImage === -1 && (
+        <ImgGrid
+          images={error ? images : makeListForGrid(images)}
+          setCurrentImage={setCurrentImage}
+        />
       )}
+      {currentImage !== -1 && <img src={images[currentImage]} alt="" />}
     </>
   );
 }
