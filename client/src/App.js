@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { coalesceToList } from "./utils/coalesceToList.js";
+import { makeListForGrid } from "./utils/makeListForGrid.js";
 
 import Gallery from "react-photo-gallery";
 import Search from "./components/Search";
@@ -9,7 +10,7 @@ function App() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
+  const [currentImage, setCurrentImage] = useState(-1);
 
   const fetchImages = async (searchQuery) => {
     setLoading(true);
@@ -23,7 +24,7 @@ function App() {
         setLoading(false);
         return;
       }
-      setImages(coalesceToList(data.images, true));
+      setImages(coalesceToList(data.images));
       setLoading(false);
       setError(null);
     } catch (error) {
@@ -45,7 +46,7 @@ function App() {
         </div>
         {loading && (
           <div className="flex-1 text-xl italic text-green-600">
-            <p>loading memes...</p>
+            <p>loading images...</p>
           </div>
         )}
         {/* todo: better error component */}
@@ -56,7 +57,9 @@ function App() {
           </div>
         )}
       </div>
-      {images.length !== 0 && <Gallery photos={images} direction={"column"} />}
+      {images.length !== 0 && (
+        <Gallery photos={makeListForGrid(images)} direction={"column"} />
+      )}
     </>
   );
 }

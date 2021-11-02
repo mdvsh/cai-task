@@ -10,6 +10,7 @@ const searchController = require("./controllers/searchController");
 
 app.use(cors());
 
+// test route
 app.get("/foo", (req, res) => {
   res.json({
     message: "foo from backend",

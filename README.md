@@ -13,5 +13,7 @@
   - [ ] pagination
 - [x] form error handling
 - [ ] functionality to add text (memification)
+  - [ ] currentImage set and focus
+  - [ ] options to add on / above / below currentImage
 - [ ] download meme
 - [ ] push to prod

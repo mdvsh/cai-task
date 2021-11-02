@@ -2,16 +2,6 @@
 
 import mapToURL from "./mapToURL";
 
-export function coalesceToList(photos, forGrid = false) {
-  // grid component requires a list of image objects
-  let urlList = photos.map((photo) => mapToURL(photo));
-  if (!forGrid) {
-    return urlList;
-  } else {
-    return urlList.map((url) => ({
-      src: url,
-      width: 150,
-      height: 100,
-    }));
-  }
+export function coalesceToList(photos) {
+  return photos.map((photo) => mapToURL(photo));
 }
