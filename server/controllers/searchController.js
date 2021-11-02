@@ -9,11 +9,19 @@ exports.search = async function (req, res) {
       text: q,
       page: 1,
       per_page: 30,
+      media: "photos",
       sort: "relevance",
+      // interestingness-asc was the initial sort option but later changed since gave weird results sometimes
     });
-    res.json({
-      images: response.body.photos.photo,
-    });
+    const photoList = response.body.photos.photo;
+    if (photoList.length === 0) {
+      res.status(404).json({
+        images: [{ src: "https://http.cat/404", width: 150, height: 100 }],
+        error: "No image found. Try searching baguette.",
+      });
+    } else {
+      res.status(200).json({ images: photoList, error: "" });
+    }
   } catch (error) {
     console.log(error);
     res.status(500).json({

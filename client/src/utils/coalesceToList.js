@@ -11,7 +11,7 @@ export function coalesceToList(photos, forGrid = false) {
     return urlList.map((url) => ({
       src: url,
       width: 150,
-      height: 95,
+      height: 100,
     }));
   }
 }

@@ -17,8 +17,15 @@ function App() {
     try {
       const response = await fetch(`/search/?q=${searchQuery}`);
       const data = await response.json();
+      if (response.status === 404) {
+        setImages(data.images);
+        setError(data.error);
+        setLoading(false);
+        return;
+      }
       setImages(coalesceToList(data.images, true));
       setLoading(false);
+      setError(null);
     } catch (error) {
       setError(error);
       setLoading(false);
@@ -42,9 +49,12 @@ function App() {
           </div>
         )}
         {/* todo: better error component */}
-        <div className="flex-1 text-2xl font-bold text-red-400">
-          {error && <p>something went wrong</p>}
-        </div>
+
+        {error && (
+          <div className="flex-1 text-xl font-bold text-red-400">
+            <p>{error}</p>
+          </div>
+        )}
       </div>
       {images.length !== 0 && <Gallery photos={images} direction={"column"} />}
     </>
