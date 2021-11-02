@@ -5,7 +5,6 @@ export default function ImgGrid(props) {
   const onImageClick = useCallback(
     (e, { photo, index }) => {
       props.setCurrentImage(index);
-      // console.log(photo);
     },
     [props]
   );

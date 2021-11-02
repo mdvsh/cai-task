@@ -11,11 +11,12 @@
 - [x] implement flickr search form and display grid
   - [x] extra - masonry grid
   - [ ] extra - pagination
-  - [ ] extra - responsive entirely
+  - [x] extra - responsive entirely
 - [x] form error handling
-- [ ] functionality to add text (memification)
+- [x] functionality to add text (memification)
   - [x] currentImage set and focus
-  - [ ] retain state (back)
+  - [x] retain state (back)
+  - [x] retain state (search)
   - [ ] options to add on / above / below currentImage
-- [ ] download meme
+- [x] download meme
 - [ ] push to prod
