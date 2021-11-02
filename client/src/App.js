@@ -4,7 +4,7 @@ import { coalesceToList } from "./utils/coalesceToList.js";
 import { makeListForGrid } from "./utils/makeListForGrid.js";
 
 import ImgGrid from "./components/ImgGrid";
-import Image from "./components/Image";
+import Playground from "./components/Playground.js";
 import { Header } from "./components/Header";
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
     setQuery(localStorage.getItem("query"));
   }, []);
 
+  const [textPos, setTextPos] = useState("below");
   const [error, setError] = useState(null);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -59,7 +60,10 @@ function App() {
         currentImage={currentImage}
         searchQuery={query}
         handleSearch={fetchImages}
+        setTextPos={setTextPos}
+        textPos={textPos}
       />
+
       {images.length !== 0 && currentImage === -1 && (
         <ImgGrid
           images={error ? images : makeListForGrid(images)}
@@ -68,7 +72,11 @@ function App() {
       )}
 
       {currentImage !== -1 && (
-        <Image src={images[currentImage]} alt="" reset={setCurrentImage} />
+        <Playground
+          src={images[currentImage]}
+          reset={setCurrentImage}
+          textPos={setTextPos}
+        />
       )}
     </>
   );
