@@ -3,7 +3,7 @@ export default function Search(props) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        props.fetchImages(e.target.elements.search.value);
+        props.handleSearch(e.target.elements.search.value);
       }}
     >
       <input
@@ -11,7 +11,7 @@ export default function Search(props) {
         type="text"
         name="search"
         placeholder={
-          props.placeholder ? props.placeholder : "search for a meme"
+          props.placeholder ? props.placeholder : "search for a template"
         }
       />
     </form>
