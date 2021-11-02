@@ -8,8 +8,9 @@
 
 - [x] setup client and server for dev
 - [x] integrate tailwind
-- [ ] implement flickr search form and display grid
-- [ ] form error handling
+- [x] implement flickr search form and display grid
+  - [x] extra - masonry grid
+- [x] form error handling
 - [ ] functionality to add text (memification)
 - [ ] download meme
 - [ ] push to prod

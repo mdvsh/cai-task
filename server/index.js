@@ -1,14 +1,23 @@
 const express = require("express");
 const cors = require("cors");
-const app = express();
+
 const PORT = process.env.PORT || 3001;
+const app = express();
+
+require("dotenv").config();
+
+const searchController = require("./controllers/searchController");
+
 app.use(cors());
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
 
 app.get("/foo", (req, res) => {
   res.json({
     message: "foo from backend",
   });
+});
+
+app.get("/search", searchController.search);
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
