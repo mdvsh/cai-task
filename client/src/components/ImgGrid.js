@@ -9,11 +9,15 @@ export default function ImgGrid(props) {
     [props]
   );
 
+  const rickRoll = (e) => {
+    alert("never gonna give you up, never gonna let you down . . .");
+  };
+
   return (
     <Gallery
       photos={props.images}
       direction={"column"}
-      onClick={onImageClick}
+      onClick={props.isError == null ? onImageClick : rickRoll}
     />
   );
 }

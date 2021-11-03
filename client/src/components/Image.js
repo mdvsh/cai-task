@@ -3,7 +3,7 @@ export default function Image(props) {
 
   return (
     <div className="bg-white py-16">
-      <img className="" src={src} alt="" />
+      <img src={src} alt="" />
     </div>
   );
 }

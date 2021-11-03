@@ -18,8 +18,13 @@ export function Options(props) {
       </svg>
       <select
         className="border border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
-        onChange={(e) => props.setTextPos(e.target.value)}
+        onChange={(e) =>
+          TEXT_POSITIONS.includes(e.target.value)
+            ? props.setTextPos(e.target.value)
+            : null
+        }
       >
+        <option>SELECT</option>
         {TEXT_POSITIONS.map((textPosition, i) => (
           <option key={i} value={textPosition}>
             {textPosition}

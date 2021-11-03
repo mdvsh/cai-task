@@ -67,6 +67,7 @@ function App() {
       {images.length !== 0 && currentImage === -1 && (
         <ImgGrid
           images={error ? images : makeListForGrid(images)}
+          isError={error}
           setCurrentImage={setCurrentImage}
         />
       )}
