@@ -1,6 +1,6 @@
 // ported form official tailwind dropdown component
 
-import { TEXT_POSITIONS } from "../utils/textPositions";
+import { TEXT_POSITIONS } from "../../utils/textPositions";
 
 export function Options(props) {
   const handlePositionChange = (e) => {

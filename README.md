@@ -22,8 +22,8 @@
   - [x] button and file ext
   - [x] capture image component for download
 - [ ] push to prod
-  - [ ] refactor components (if possible)
-  - [ ] final bug testing
+  - [x] refactor components (if possible)
+  - [x] final bug testing
 
 ##### extras
 

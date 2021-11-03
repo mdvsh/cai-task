@@ -16,7 +16,7 @@ exports.search = async function (req, res) {
     const photoList = response.body.photos.photo;
     if (photoList.length === 0) {
       res.status(404).json({
-        images: [{ src: "https://http.cat/404", width: 150, height: 100 }],
+        images: ["https://http.cat/404"],
         error: "No image found. Try searching baguette.",
       });
     } else {

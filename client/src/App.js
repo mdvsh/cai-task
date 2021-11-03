@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { coalesceToList } from "./utils/coalesceToList.js";
 import { makeListForGrid } from "./utils/makeListForGrid.js";
 
-import ImgGrid from "./components/ImgGrid";
-import Playground from "./components/Playground.js";
-import { Header } from "./components/Header";
+import ImgGrid from "./components/PlaygroundComponents/ImgGrid";
+import Playground from "./components/PlaygroundComponents/Playground.js";
+import { Header } from "./components/HeaderComponents/Header";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -64,16 +64,19 @@ function App() {
         textPos={textPos}
       />
 
-      {images.length !== 0 && currentImage === -1 && (
+      {images.length !== 0 && currentImage === -1 && error === null && (
         <ImgGrid
-          images={error ? images : makeListForGrid(images)}
-          isError={error}
+          images={makeListForGrid(images)}
           setCurrentImage={setCurrentImage}
         />
       )}
 
       {currentImage !== -1 && (
         <Playground src={images[currentImage]} textPos={setTextPos} />
+      )}
+
+      {error && (
+        <img src={images[0]} alt="404 cat" className="object-center"></img>
       )}
     </>
   );

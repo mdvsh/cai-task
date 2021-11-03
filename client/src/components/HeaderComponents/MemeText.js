@@ -1,4 +1,4 @@
-import { TEXT_POSITIONS } from "../utils/textPositions";
+import { TEXT_POSITIONS } from "../../utils/textPositions";
 
 export function MemeText(props) {
   const { position } = props;
@@ -29,7 +29,7 @@ export function MemeText(props) {
   return (
     <div className="flex-auto py-2">
       <p className="lg:text-xl text-md text-gray-600 leading-6 font-semibold">
-        make meme:
+        make meme
         {TEXT_POSITIONS.includes(position) && (
           <input
             id="inpOne"
