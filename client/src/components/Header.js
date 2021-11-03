@@ -18,9 +18,7 @@ export function Header(props) {
   return (
     <div className="flex flex-wrap justify-center py-4">
       <div className="flex-1 px-5 font-bold leading-relaxed text-gray-600">
-        <h1 className="lg:text-2xl text-xl leading-relaxed">
-          cai meme generator
-        </h1>
+        <h1 className="lg:text-2xl text-xl leading-relaxed">cai meme maker</h1>
         <div className="py-3">
           <Search handleSearch={handleSearch} placeholder={searchQuery} />
         </div>

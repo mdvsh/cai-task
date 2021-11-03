@@ -3,6 +3,11 @@
 import { TEXT_POSITIONS } from "../utils/textPositions";
 
 export function Options(props) {
+  const handlePositionChange = (e) => {
+    document.getElementById("topText").textContent = "";
+    document.getElementById("bottomText").textContent = "";
+    props.setTextPos(e.target.value);
+  };
   return (
     <div className="mx-2 relative inline-flex">
       <svg
@@ -18,7 +23,7 @@ export function Options(props) {
       </svg>
       <select
         className="border border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
-        onChange={(e) => props.setTextPos(e.target.value)}
+        onChange={handlePositionChange}
       >
         <option value="choose">SELECT TEXT POSITION</option>
         {TEXT_POSITIONS.map((textPosition, i) => (
