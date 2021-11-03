@@ -7,6 +7,7 @@ export function MemeText(props) {
   if (position === "overlay") {
     additionalInput = (
       <input
+        id="inpTwo"
         placeholder="BOTTOM TEXT"
         type="text"
         className="rounded-md bg-white text-gray-600 font-semibold border-gray-300 ml-2 lg:px-4"
@@ -31,6 +32,7 @@ export function MemeText(props) {
         make meme:
         {TEXT_POSITIONS.includes(position) && (
           <input
+            id="inpOne"
             placeholder={position !== "bottom" ? "TOP TEXT" : "BOTTOM TEXT"}
             type="text"
             onChange={(e) =>

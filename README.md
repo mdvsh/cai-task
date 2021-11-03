@@ -20,7 +20,7 @@
   - [x] place text on image
 - [x] download meme
   - [x] button and file ext
-  - [ ] capture image component for download
+  - [x] capture image component for download
 - [ ] push to prod
   - [ ] refactor components (if possible)
   - [ ] final bug testing

@@ -6,6 +6,12 @@ export function Options(props) {
   const handlePositionChange = (e) => {
     document.getElementById("topText").textContent = "";
     document.getElementById("bottomText").textContent = "";
+    if (document.getElementById("inpOne")) {
+      document.getElementById("inpOne").value = "";
+    }
+    if (document.getElementById("inpTwo")) {
+      document.getElementById("inpTwo").value = "";
+    }
     props.setTextPos(e.target.value);
   };
   return (
