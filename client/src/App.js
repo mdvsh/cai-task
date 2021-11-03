@@ -27,7 +27,7 @@ function App() {
     setCurrentImage(-1);
     setQuery(searchQuery);
     try {
-      const response = await fetch(`/search/?q=${searchQuery}`);
+      const response = await fetch(`/api/search/?q=${searchQuery}`);
       const data = await response.json();
       if (response.status === 404) {
         setImages(data.images);

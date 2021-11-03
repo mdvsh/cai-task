@@ -1,6 +1,10 @@
-var Flickr = require("flickr-sdk");
+const Flickr = require("flickr-sdk");
+const express = require("express");
+const router = express.Router();
 
 exports.search = async function (req, res) {
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   const apiKey = process.env.API_KEY;
   var sdk = new Flickr(apiKey.trim());
   try {

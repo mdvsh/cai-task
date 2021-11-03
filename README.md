@@ -2,6 +2,12 @@
 
 > meme generator
 
+#### stack
+
+- react with tailwindcss for the frontend
+- express backend functioning as vercel serverless functions
+- deployed on vercel
+
 ---
 
 #### TODO
@@ -21,7 +27,7 @@
 - [x] download meme
   - [x] button and file ext
   - [x] capture image component for download
-- [ ] push to prod
+- [x] push to prod
   - [x] refactor components (if possible)
   - [x] final bug testing
 
