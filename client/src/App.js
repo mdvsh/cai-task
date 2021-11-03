@@ -73,11 +73,7 @@ function App() {
       )}
 
       {currentImage !== -1 && (
-        <Playground
-          src={images[currentImage]}
-          reset={setCurrentImage}
-          textPos={setTextPos}
-        />
+        <Playground src={images[currentImage]} textPos={setTextPos} />
       )}
     </>
   );

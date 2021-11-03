@@ -20,6 +20,6 @@
   - [x] options to add on / above / below currentImage
   - [] place text on image
 - [x] download meme
-  - [ ] button and file ext
+  - [x] button and file ext
   - [ ] capture image component for download
 - [ ] push to prod

@@ -4,7 +4,7 @@ import { TEXT_POSITIONS } from "../utils/textPositions";
 
 export function Options(props) {
   return (
-    <div className="mx-4 relative inline-flex">
+    <div className="mx-2 relative inline-flex">
       <svg
         className="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,13 +18,9 @@ export function Options(props) {
       </svg>
       <select
         className="border border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
-        onChange={(e) =>
-          TEXT_POSITIONS.includes(e.target.value)
-            ? props.setTextPos(e.target.value)
-            : null
-        }
+        onChange={(e) => props.setTextPos(e.target.value)}
       >
-        <option>SELECT</option>
+        <option value="choose">SELECT TEXT POSITION</option>
         {TEXT_POSITIONS.map((textPosition, i) => (
           <option key={i} value={textPosition}>
             {textPosition}

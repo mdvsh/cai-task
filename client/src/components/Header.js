@@ -1,6 +1,7 @@
 import Search from "./Search";
 
 import { Options } from "./Options";
+import { MemeText } from "./MemeText";
 
 export function Header(props) {
   // load props
@@ -33,16 +34,9 @@ export function Header(props) {
 
       {currentImage !== -1 && (
         <>
-          <div className="flex-auto px-4 pb-2">
-            <p className="lg:text-xl text-lg text-gray-500 leading-12 font-semibold">
-              where to add text ?
-              <Options setTextPos={setTextPos} />
-            </p>
-          </div>
-          <div className="flex-auto py-2">
-            <p className="lg:text-lg text-md text-gray-700">
-              current text position: <b>{textPos}</b>
-            </p>
+          <MemeText position={textPos} />
+          <div className="flex-1 py-2">
+            <Options setTextPos={setTextPos} />
           </div>
         </>
       )}
